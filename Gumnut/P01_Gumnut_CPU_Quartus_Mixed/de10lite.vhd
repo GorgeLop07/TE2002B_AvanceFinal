@@ -233,14 +233,14 @@ BEGIN
 
     -- Umbral: divide rango 0-4095 en 4 cuadrantes de 1024
     -- ADC_IN4 -> SW1, SW0  |  ADC_IN5 -> SW3, SW2
-    sw_virtual(1 DOWNTO 0) <= "11" WHEN unsigned(adc_ch4) >= x"C00" ELSE
-                               "10" WHEN unsigned(adc_ch4) >= x"800" ELSE
-                               "01" WHEN unsigned(adc_ch4) >= x"400" ELSE
+    sw_virtual(1 DOWNTO 0) <= "00" WHEN unsigned(adc_ch4) >= x"600" ELSE
+                               "00" WHEN unsigned(adc_ch4) >= x"010" ELSE
+                               "00" WHEN unsigned(adc_ch4) >= x"100" ELSE
                                "00";
-    sw_virtual(3 DOWNTO 2) <= "11" WHEN unsigned(adc_ch5) >= x"C00" ELSE
-                               "10" WHEN unsigned(adc_ch5) >= x"800" ELSE
-                               "01" WHEN unsigned(adc_ch5) >= x"400" ELSE
-                               "00";
+    sw_virtual(3 DOWNTO 2) <= "10" WHEN unsigned(adc_ch5) >= x"C00" ELSE
+                               "10" WHEN unsigned(adc_ch5) >= x"700" ELSE
+                               "00" WHEN unsigned(adc_ch5) >= x"500" ELSE
+                               "01";
 
     PROCESS(CLOCK_50, rst_i)
     BEGIN

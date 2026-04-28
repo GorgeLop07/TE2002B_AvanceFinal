@@ -1,5 +1,5 @@
 ; uart_sw.gsm
-; SW0=W  SW1=A  SW2=S  SW3=D
+; SW0=D  SW1=A  SW2=W  SW3=S
 ; KEY0(bit0)=gearUp '1'   KEY1(bit1)=gearDown '2'
 ; Delay 50ms tras cada envio para no saturar la UART
 
@@ -18,7 +18,7 @@ main:     inp r1, 0x03
           add r3, r1, 0
           and r3, r3, 0x01
           bz  chk_a
-          add r3, r0, 0x57
+          add r3, r0, 0x44  ; 'D'
           jmp send
 
 chk_a:    add r3, r1, 0
@@ -30,13 +30,13 @@ chk_a:    add r3, r1, 0
 chk_s:    add r3, r1, 0
           and r3, r3, 0x04
           bz  chk_d
-          add r3, r0, 0x53
+          add r3, r0, 0x57  ; 'W'
           jmp send
 
 chk_d:    add r3, r1, 0
           and r3, r3, 0x08
           bz  chk_keys
-          add r3, r0, 0x44
+          add r3, r0, 0x53  ; 'S'
           jmp send
 
 chk_keys: inp r2, 0x02

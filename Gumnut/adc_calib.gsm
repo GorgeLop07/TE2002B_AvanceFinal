@@ -1,0 +1,68 @@
+; adc_calib.gsm
+; Imprime valores crudos ADC por UART para calibracion de umbrales
+; Puerto 0x06 = ADC_IN4 bits[11:4]  (eje X, 8 bits)
+; Puerto 0x07 = ADC_IN5 bits[11:4]  (eje Y, 8 bits)
+; Formato de salida: "XX YY\r\n"  (hex, ~10 Hz)
+
+          text
+          org 0x000
+          jmp main
+
+          data
+
+          text
+          org 0x010
+
+main:     inp r2, 0x06      ; leer eje X (8 bits altos del ADC)
+          jsb phex          ; imprimir r2 como 2 hex ASCII
+          add r1, r0, ' '   ; espacio separador
+          jsb sc
+          inp r2, 0x07      ; leer eje Y
+          jsb phex
+          add r1, r0, '\r'
+          jsb sc
+          add r1, r0, '\n'
+          jsb sc
+          jsb dly
+          jmp main
+
+; phex: imprime r2 como 2 digitos hex
+phex:     shr r3, r2, 4     ; nibble alto
+          and r3, r3, 0x0F
+          jsb nh
+          jsb sc
+          and r3, r2, 0x0F  ; nibble bajo
+          jsb nh
+          jsb sc
+          ret
+
+; nh: convierte nibble r3 (0-15) a ASCII en r1
+; sub r3-10: carry=1 si r3<10 (digito), carry=0 si r3>=10 (letra)
+nh:       sub r0, r3, 10
+          bc  nh_dg
+          add r1, r3, 0x37  ; 'A'-'F'
+          ret
+nh_dg:    add r1, r3, 0x30  ; '0'-'9'
+          ret
+
+; sc: espera UART disponible y envia r1
+sc:       inp r4, 0x04
+          and r4, r4, 0x01
+          bz  sc
+          out r1, 0x05
+          ret
+
+; ~100ms a 50MHz
+dly:      add r5, r0, 0
+d3:       add r4, r0, 0
+d2:       add r3, r0, 0
+d1:       add r3, r3, 1
+          sub r0, r3, 0xFF
+          bnz d1
+          add r4, r4, 1
+          sub r0, r4, 0xFF
+          bnz d2
+          add r5, r5, 1
+          sub r0, r5, 20
+          bnz d3
+          ret

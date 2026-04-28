@@ -1,5 +1,5 @@
 Analysis & Synthesis report for gumnut_with_mem
-Tue Apr 28 04:40:18 2026
+Tue Apr 28 08:03:50 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -89,13 +89,13 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Apr 28 04:40:18 2026           ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr 28 08:03:50 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; gumnut_with_mem                                 ;
 ; Top-level Entity Name              ; de10lite                                        ;
 ; Family                             ; MAX 10                                          ;
-; Total logic elements               ; 4,778                                           ;
-;     Total combinational functions  ; 2,655                                           ;
+; Total logic elements               ; 4,780                                           ;
+;     Total combinational functions  ; 2,657                                           ;
 ;     Dedicated logic registers      ; 2,522                                           ;
 ; Total registers                    ; 2522                                            ;
 ; Total pins                         ; 34                                              ;
@@ -207,7 +207,7 @@ on the Quartus Prime software download page.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.2%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 ;     Processor 5            ;   0.1%      ;
@@ -285,16 +285,16 @@ on the Quartus Prime software download page.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 4,778          ;
+; Estimated Total logic elements              ; 4,780          ;
 ;                                             ;                ;
-; Total combinational functions               ; 2655           ;
+; Total combinational functions               ; 2657           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 2002           ;
+;     -- 4 input functions                    ; 2005           ;
 ;     -- 3 input functions                    ; 521            ;
-;     -- <=2 input functions                  ; 132            ;
+;     -- <=2 input functions                  ; 131            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 2575           ;
+;     -- normal mode                          ; 2577           ;
 ;     -- arithmetic mode                      ; 80             ;
 ;                                             ;                ;
 ; Total registers                             ; 2522           ;
@@ -311,7 +311,7 @@ on the Quartus Prime software download page.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 2531           ;
-; Total fan-out                               ; 17543          ;
+; Total fan-out                               ; 17553          ;
 ; Average fan-out                             ; 3.34           ;
 +---------------------------------------------+----------------+
 
@@ -321,7 +321,7 @@ on the Quartus Prime software download page.
 +------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+------------------+
 ; Compilation Hierarchy Node                                                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                                                                                                                  ; Entity Name                            ; Library Name     ;
 +------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+------------------+
-; |de10lite                                                                    ; 2655 (83)           ; 2522 (51)                 ; 512         ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |de10lite                                                                                                                                                                                                                                                            ; de10lite                               ; work             ;
+; |de10lite                                                                    ; 2657 (84)           ; 2522 (51)                 ; 512         ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |de10lite                                                                                                                                                                                                                                                            ; de10lite                               ; work             ;
 ;    |adc_ctrl:adc_inst|                                                       ; 113 (20)            ; 114 (32)                  ; 512         ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|adc_ctrl:adc_inst                                                                                                                                                                                                                                          ; adc_ctrl                               ; work             ;
 ;       |altpll:pll_inst|                                                      ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|adc_ctrl:adc_inst|altpll:pll_inst                                                                                                                                                                                                                          ; altpll                                 ; work             ;
 ;          |altpll_c7t:auto_generated|                                         ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|adc_ctrl:adc_inst|altpll:pll_inst|altpll_c7t:auto_generated                                                                                                                                                                                                ; altpll_c7t                             ; work             ;
@@ -343,10 +343,10 @@ on the Quartus Prime software download page.
 ;                |altera_modular_adc_sequencer_ctrl:u_seq_ctrl|                ; 6 (6)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sequencer:sequencer_internal|altera_modular_adc_sequencer_ctrl:u_seq_ctrl                                                                      ; altera_modular_adc_sequencer_ctrl      ; modular_adc_core ;
 ;    |baudrate_gen:baud_inst|                                                  ; 17 (17)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|baudrate_gen:baud_inst                                                                                                                                                                                                                                     ; baudrate_gen                           ; work             ;
 ;    |baudrate_gen:baud_rx_inst|                                               ; 11 (11)             ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|baudrate_gen:baud_rx_inst                                                                                                                                                                                                                                  ; baudrate_gen                           ; work             ;
-;    |gumnut_with_mem:gumnut_inst|                                             ; 2380 (0)            ; 2309 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst                                                                                                                                                                                                                                ; gumnut_with_mem                        ; work             ;
+;    |gumnut_with_mem:gumnut_inst|                                             ; 2381 (0)            ; 2309 (0)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst                                                                                                                                                                                                                                ; gumnut_with_mem                        ; work             ;
 ;       |data_mem:core_data_mem|                                               ; 1651 (1651)         ; 2057 (2057)               ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst|data_mem:core_data_mem                                                                                                                                                                                                         ; data_mem                               ; work             ;
-;       |gumnut:core|                                                          ; 602 (602)           ; 252 (252)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst|gumnut:core                                                                                                                                                                                                                    ; gumnut                                 ; work             ;
-;       |inst_mem:core_inst_mem|                                               ; 127 (127)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst|inst_mem:core_inst_mem                                                                                                                                                                                                         ; inst_mem                               ; work             ;
+;       |gumnut:core|                                                          ; 600 (600)           ; 252 (252)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst|gumnut:core                                                                                                                                                                                                                    ; gumnut                                 ; work             ;
+;       |inst_mem:core_inst_mem|                                               ; 130 (130)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|gumnut_with_mem:gumnut_inst|inst_mem:core_inst_mem                                                                                                                                                                                                         ; inst_mem                               ; work             ;
 ;    |uart_rx:uart_rx_inst|                                                    ; 27 (27)             ; 19 (19)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|uart_rx:uart_rx_inst                                                                                                                                                                                                                                       ; uart_rx                                ; work             ;
 ;    |uart_tx:uart_tx_inst|                                                    ; 24 (24)             ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |de10lite|uart_tx:uart_tx_inst                                                                                                                                                                                                                                       ; uart_tx                                ; work             ;
 +------------------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+------------------+
@@ -501,21 +501,20 @@ Encoding Type:  One-Hot
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|altera_modular_adc_control_avrg_fifo:ts_avrg_fifo|scfifo:scfifo_component|scfifo_ds61:auto_generated|a_dpfifo_3o41:dpfifo|a_fefifo_c6e:fifo_state|b_non_empty                                ; Stuck at GND due to stuck port data_in                                                                                                                                                                           ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sequencer:sequencer_internal|altera_modular_adc_sequencer_ctrl:u_seq_ctrl|cmd_channel[0]                                                                                                                                                                           ; Merged with adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sequencer:sequencer_internal|altera_modular_adc_sequencer_ctrl:u_seq_ctrl|cmd_eop        ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|avrg_cnt_done                                                                                                                                                                                ; Lost fanout                                                                                                                                                                                                      ;
-; adc_ctrl:adc_inst|ch5_data[0..3]                                                                                                                                                                                                                                                                                                                                               ; Lost fanout                                                                                                                                                                                                      ;
-; adc_ctrl:adc_inst|ch4_data[0]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
+; adc_ctrl:adc_inst|ch5_data[0]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sample_store:sample_store_internal|readdata[0]                                                                                                                                                                                                                     ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sample_store:sample_store_internal|csr_readdata[0]                                                                                                                                                                                                                 ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|rsp_data[0]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|dout_flp[0]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
-; adc_ctrl:adc_inst|ch4_data[1]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
+; adc_ctrl:adc_inst|ch5_data[1]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sample_store:sample_store_internal|readdata[1]                                                                                                                                                                                                                     ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|rsp_data[1]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|dout_flp[1]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
-; adc_ctrl:adc_inst|ch4_data[2]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
+; adc_ctrl:adc_inst|ch5_data[2]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sample_store:sample_store_internal|readdata[2]                                                                                                                                                                                                                     ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|rsp_data[2]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|dout_flp[2]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
-; adc_ctrl:adc_inst|ch4_data[3]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
+; adc_ctrl:adc_inst|ch5_data[3]                                                                                                                                                                                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_sample_store:sample_store_internal|readdata[3]                                                                                                                                                                                                                     ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|rsp_data[3]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|dout_flp[3]                                                                                                                                                                                  ; Lost fanout                                                                                                                                                                                                      ;
@@ -542,7 +541,7 @@ Encoding Type:  One-Hot
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|ctrl_state.PUTRESP_DLY1                                                                                                                                                                      ; Merged with adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|cmd_ready          ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|cmd_fetched                                                                                                                                                                                  ; Stuck at GND due to stuck port data_in                                                                                                                                                                           ;
 ; adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|chsel[4]                                                                                                                                                                                     ; Merged with adc_ctrl:adc_inst|modular_adc_core:adc_inst|modular_adc_core_modular_adc_0:modular_adc_0|altera_modular_adc_control:control_internal|altera_modular_adc_control_fsm:u_control_fsm|chsel[1]           ;
-; Total Number of Removed Registers = 129                                                                                                                                                                                                                                                                                                                                        ;                                                                                                                                                                                                                  ;
+; Total Number of Removed Registers = 125                                                                                                                                                                                                                                                                                                                                        ;                                                                                                                                                                                                                  ;
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -1736,13 +1735,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "adc_ctrl:adc_inst"                                                                   ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; valid ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "adc_ctrl:adc_inst"                                                                            ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; ch4_data[3..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; valid          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------+
@@ -1769,22 +1769,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR SCLR      ; 8                           ;
 ;     ENA SLD           ; 8                           ;
 ;     plain             ; 115                         ;
-; cycloneiii_lcell_comb ; 2662                        ;
+; cycloneiii_lcell_comb ; 2664                        ;
 ;     arith             ; 80                          ;
 ;         2 data inputs ; 42                          ;
 ;         3 data inputs ; 38                          ;
-;     normal            ; 2582                        ;
+;     normal            ; 2584                        ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 20                          ;
-;         2 data inputs ; 74                          ;
+;         2 data inputs ; 73                          ;
 ;         3 data inputs ; 483                         ;
-;         4 data inputs ; 2002                        ;
+;         4 data inputs ; 2005                        ;
 ; cycloneiii_pll        ; 1                           ;
 ; cycloneiii_ram_block  ; 8                           ;
 ; fiftyfivenm_adcblock  ; 1                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 17.10                       ;
-; Average LUT depth     ; 8.55                        ;
+; Average LUT depth     ; 8.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1793,7 +1793,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:10     ;
+; Top            ; 00:00:15     ;
 +----------------+--------------+
 
 
@@ -1803,7 +1803,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Tue Apr 28 04:39:56 2026
+    Info: Processing started: Tue Apr 28 08:03:20 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off gumnut_with_mem -c gumnut_with_mem
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -2060,7 +2060,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/de10lite.vhd Line: 247
     Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/de10lite.vhd Line: 247
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 30 registers lost all their fanouts during netlist optimizations.
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/output_files/gumnut_with_mem.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -2075,17 +2075,17 @@ Warning (21074): Design contains 10 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/de10lite.vhd Line: 8
     Warning (15610): No output dependent on input pin "SW[8]" File: /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/de10lite.vhd Line: 8
     Warning (15610): No output dependent on input pin "SW[9]" File: /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/de10lite.vhd Line: 8
-Info (21057): Implemented 5002 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5004 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 14 input pins
     Info (21059): Implemented 20 output pins
-    Info (21061): Implemented 4958 logic cells
+    Info (21061): Implemented 4960 logic cells
     Info (21064): Implemented 8 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 98 warnings
-    Info: Peak virtual memory: 508 megabytes
-    Info: Processing ended: Tue Apr 28 04:40:18 2026
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:37
+    Info: Peak virtual memory: 512 megabytes
+    Info: Processing ended: Tue Apr 28 08:03:50 2026
+    Info: Elapsed time: 00:00:30
+    Info: Total CPU time (on all processors): 00:00:51
 
 
 +------------------------------------------+
