@@ -1,0 +1,23 @@
+; Program to determine greater of value_1 and value_2
+; and display result in output port
+	text
+	org 0x000 ; start here on reset
+	jmp main
+; Data memory layout
+	data
+	value_1: byte 170
+	value_2: byte 15
+	result: bss 1
+; Main program
+			text
+			org 0x010
+main: 			ldm r1, value_1 ; load values
+			ldm r2, value_2
+			sub r0, r1, r2 ; compare values
+			bc value_2_greater
+			stm r1, result ; value_1 is greater
+			jmp finish
+value_2_greater:	stm r2, result ; value_2 is greater
+finish:			ldm r2, result ; Prepare to display result
+			out r2, result ; Send to output Port (LEDs)
+	 		jmp finish ; idle loop

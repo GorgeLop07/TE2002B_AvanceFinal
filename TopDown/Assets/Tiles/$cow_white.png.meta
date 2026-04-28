@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 8fac63ec4d2447349a9d13c29afd4999
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6434592460243619108
+    second: $cow_white_0
+  - first:
+      213: 455318893925057469
+    second: $cow_white_1
+  - first:
+      213: 5501665406518312720
+    second: $cow_white_2
+  - first:
+      213: 3419442682352718431
+    second: $cow_white_3
+  - first:
+      213: 9193690059378382156
+    second: $cow_white_4
+  - first:
+      213: 4440862528011994235
+    second: $cow_white_5
+  - first:
+      213: 4638497096240203110
+    second: $cow_white_6
+  - first:
+      213: -3227440177089826684
+    second: $cow_white_7
+  - first:
+      213: -3709854186658834397
+    second: $cow_white_8
+  - first:
+      213: 7147172281837643228
+    second: $cow_white_9
+  - first:
+      213: -4075136003075959154
+    second: $cow_white_10
+  - first:
+      213: 6586037439964388382
+    second: $cow_white_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: $cow_white_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 71
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd2b5c4df3cb3b6a0800000000000000
+      internalID: -6434592460243619108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 71
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db34de32f1e915600800000000000000
+      internalID: 455318893925057469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 71
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01f3494c987d95c40800000000000000
+      internalID: 5501665406518312720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f52517ba00d447f20800000000000000
+      internalID: 3419442682352718431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_4
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 47
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45d944166c869f70800000000000000
+      internalID: 9193690059378382156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_5
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 47
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b748f76c0fc11ad30800000000000000
+      internalID: 4440862528011994235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 665041188804f5040800000000000000
+      internalID: 4638497096240203110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 23
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 480bcb63244d533d0800000000000000
+      internalID: -3227440177089826684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_8
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32854bbd543f38cc0800000000000000
+      internalID: -3709854186658834397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_9
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 23
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd5637fa25bdf2360800000000000000
+      internalID: 7147172281837643228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86904d65653277c0800000000000000
+      internalID: -4075136003075959154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: $cow_white_11
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c1086482e466b50800000000000000
+      internalID: 6586037439964388382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      $cow_white_0: -6434592460243619108
+      $cow_white_1: 455318893925057469
+      $cow_white_10: -4075136003075959154
+      $cow_white_11: 6586037439964388382
+      $cow_white_2: 5501665406518312720
+      $cow_white_3: 3419442682352718431
+      $cow_white_4: 9193690059378382156
+      $cow_white_5: 4440862528011994235
+      $cow_white_6: 4638497096240203110
+      $cow_white_7: -3227440177089826684
+      $cow_white_8: -3709854186658834397
+      $cow_white_9: 7147172281837643228
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

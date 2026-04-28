@@ -1,0 +1,85 @@
+; uart_sw.gsm
+; SW0=W  SW1=A  SW2=S  SW3=D
+; KEY0(bit0)=gearUp '1'   KEY1(bit1)=gearDown '2'
+; Delay 50ms tras cada envio para no saturar la UART
+
+          text
+          org 0x000
+          jmp main
+
+          data
+prev_key: byte 3
+
+          text
+          org 0x010
+
+main:     inp r1, 0x03
+
+          add r3, r1, 0
+          and r3, r3, 0x01
+          bz  chk_a
+          add r3, r0, 0x57
+          jmp send
+
+chk_a:    add r3, r1, 0
+          and r3, r3, 0x02
+          bz  chk_s
+          add r3, r0, 0x41
+          jmp send
+
+chk_s:    add r3, r1, 0
+          and r3, r3, 0x04
+          bz  chk_d
+          add r3, r0, 0x53
+          jmp send
+
+chk_d:    add r3, r1, 0
+          and r3, r3, 0x08
+          bz  chk_keys
+          add r3, r0, 0x44
+          jmp send
+
+chk_keys: inp r2, 0x02
+          and r2, r2, 0x03
+          ldm r6, prev_key
+          stm r2, prev_key
+
+          add r3, r6, 0
+          and r3, r3, 0x01
+          bz  chk_k1
+          add r3, r2, 0
+          and r3, r3, 0x01
+          bnz chk_k1
+          add r3, r0, 0x31
+          jmp send
+
+chk_k1:   add r3, r6, 0
+          and r3, r3, 0x02
+          bz  main
+          add r3, r2, 0
+          and r3, r3, 0x02
+          bnz main
+          add r3, r0, 0x32
+          jmp send
+
+send:     inp r4, 0x04
+          and r4, r4, 0x01
+          bz  send
+          out r3, 0x05
+          jsb dly
+          jmp main
+
+; ~50ms a 50MHz
+dly:      add r5, r0, 0
+d3:       add r4, r0, 0
+d2:       add r3, r0, 0
+d1:       add r3, r3, 1
+          sub r0, r3, 0xFF
+          bnz d1
+          add r4, r4, 1
+          sub r0, r4, 0xFF
+          bnz d2
+          add r5, r5, 1
+          sub r0, r5, 0x0A
+          bnz d3
+          ret

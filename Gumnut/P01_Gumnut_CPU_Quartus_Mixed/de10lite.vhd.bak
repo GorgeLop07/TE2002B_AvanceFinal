@@ -1,0 +1,69 @@
+LIBRARY 	ieee;
+USE		ieee.std_logic_1164.all;
+
+ENTITY de10lite IS
+	PORT(	
+		CLOCK_50	: 	IN			std_logic;
+		KEY		: 	IN 		std_logic_vector( 1 DOWNTO 0 );
+		SW			: 	IN 		std_logic_vector( 9 DOWNTO 0 );
+		LEDR		: 	OUT		std_logic_vector( 9 DOWNTO 0 )
+	);
+END de10lite;
+
+ARCHITECTURE Structural OF de10lite IS	
+	
+	component gumnut_with_mem IS
+		generic ( 
+			IMem_file_name : string := "gasm_text.dat";
+			DMem_file_name : string := "gasm_data.dat";
+         debug : boolean := false );
+		port ( clk_i : in std_logic;
+         rst_i : in std_logic;
+         -- I/O port bus
+         port_cyc_o : out std_logic;
+         port_stb_o : out std_logic;
+         port_we_o : out std_logic;
+         port_ack_i : in std_logic;
+         port_adr_o : out unsigned(7 downto 0);
+         port_dat_o : out std_logic_vector(7 downto 0);
+         port_dat_i : in std_logic_vector(7 downto 0);
+         -- Interrupts
+         int_req : in std_logic;
+         int_ack : out std_logic );
+	end component gumnut_with_mem;
+	
+	SIGNAL clk_i, rst_i:	std_logic;
+	
+BEGIN
+	
+	clk_i 		<= CLOCK_50;
+	rst_i 		<= not KEY( 0 );
+	port_ack_i 	<= '1';
+	
+	gumnut : 		COMPONENT gumnut_with_mem 
+							PORT MAP(
+								clk_i,
+								rst_i,
+								port_cyc_o,
+								port_stb_o,
+								port_we_o,
+								port_ack_i,
+								port_adr_o( 7 DOWNTO 0 ),
+								port_dat_o( 7 DOWNTO 0 ),
+								port_dat_i( 7 DOWNTO 0 ),
+								int_req,
+								int_ack
+								);																	
+	
+	-- Output => LEDR address: 0x00	
+	PROCESS( clk_i )
+		BEGIN
+			IF rising_edge( clk_i ) THEN 
+				IF port_adr_o( 1 ) = '0' 	and port_adr_o( 0 ) = '0' 	and 
+					port_cyc_o = '1' 		and port_stb_o = '1' 		and port_we_o = '1' THEN
+					LEDR( 7 DOWNTO 0 ) <= port_dat_o( 7 DOWNTO 0 );
+				END IF;
+			END IF;
+	END PROCESS;
+		
+END behavior;
