@@ -1,0 +1,1 @@
+Warning (10273): Verilog HDL warning at altera_modular_adc_control_fsm.v(716): extended using "x" or "z" File: /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core/synthesis/submodules/altera_modular_adc_control_fsm.v Line: 716

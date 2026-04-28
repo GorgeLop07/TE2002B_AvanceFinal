@@ -1,8 +1,16 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="a9ec15b786b83cb694a0"/>
+    <hash md5_digest_80b="878d90340f6ac0390895"/>
   </project>
   <file_info>
     <file device="10M50DAF484C7G" path="gumnut_with_mem.sof" usercode="0xFFFFFFFF"/>
   </file_info>
+  <sld_infos>
+    <sld_info hpath="adc_ctrl:adc_inst|modular_adc_core:adc_inst" name="adc_inst">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME modular_adc_core HAS_SOPCINFO 1 GENERATION_ID 1777371842"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
 </sld_project_info>

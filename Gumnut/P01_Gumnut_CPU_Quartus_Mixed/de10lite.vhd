@@ -67,6 +67,16 @@ ARCHITECTURE Structural OF de10lite IS
         );
     END COMPONENT uart_rx;
 
+    COMPONENT adc_ctrl IS
+        PORT (
+            clk      : IN  std_logic;
+            reset_n  : IN  std_logic;
+            ch4_data : OUT std_logic_vector(11 DOWNTO 0);
+            ch5_data : OUT std_logic_vector(11 DOWNTO 0);
+            valid    : OUT std_logic
+        );
+    END COMPONENT adc_ctrl;
+
     SIGNAL rst_i       : std_logic := '1';
     SIGNAL por_count   : unsigned(7 downto 0) := (others => '0');
     SIGNAL port_cyc_o  : std_logic;
@@ -87,6 +97,11 @@ ARCHITECTURE Structural OF de10lite IS
     SIGNAL rx_data     : std_logic_vector(7 downto 0);
     SIGNAL score_reg   : std_logic_vector(7 downto 0) := (others => '0');
     SIGNAL mux_cnt     : unsigned(15 downto 0) := (others => '0');
+    SIGNAL rst_n       : std_logic;
+    SIGNAL adc_ch4     : std_logic_vector(11 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL adc_ch5     : std_logic_vector(11 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL adc_valid   : std_logic;
+    SIGNAL sw_virtual  : std_logic_vector(3 DOWNTO 0);
 
     -- Funcion BCD a 7 segmentos (activo bajo)
     -- segmentos: gfedcba
@@ -113,6 +128,7 @@ ARCHITECTURE Structural OF de10lite IS
 BEGIN
 
     int_req <= '0';
+    rst_n   <= NOT rst_i;
 
     PROCESS(CLOCK_50)
     BEGIN
@@ -206,6 +222,26 @@ BEGIN
                  bcd_to_7seg(score_reg(7 DOWNTO 4));
     DISP_SEL <= "01" WHEN mux_cnt(15) = '0' ELSE "10";
 
+    adc_inst : adc_ctrl
+        PORT MAP (
+            clk      => CLOCK_50,
+            reset_n  => rst_n,
+            ch4_data => adc_ch4,
+            ch5_data => adc_ch5,
+            valid    => adc_valid
+        );
+
+    -- Umbral: divide rango 0-4095 en 4 cuadrantes de 1024
+    -- ADC_IN4 -> SW1, SW0  |  ADC_IN5 -> SW3, SW2
+    sw_virtual(1 DOWNTO 0) <= "11" WHEN unsigned(adc_ch4) >= x"C00" ELSE
+                               "10" WHEN unsigned(adc_ch4) >= x"800" ELSE
+                               "01" WHEN unsigned(adc_ch4) >= x"400" ELSE
+                               "00";
+    sw_virtual(3 DOWNTO 2) <= "11" WHEN unsigned(adc_ch5) >= x"C00" ELSE
+                               "10" WHEN unsigned(adc_ch5) >= x"800" ELSE
+                               "01" WHEN unsigned(adc_ch5) >= x"400" ELSE
+                               "00";
+
     PROCESS(CLOCK_50, rst_i)
     BEGIN
         IF rst_i = '1' THEN
@@ -241,7 +277,7 @@ BEGIN
         END IF;
     END PROCESS;
 
-    PROCESS(port_cyc_o, port_stb_o, port_we_o, port_adr_o, KEY, SW, uart_ready)
+    PROCESS(port_cyc_o, port_stb_o, port_we_o, port_adr_o, KEY, uart_ready, sw_virtual, adc_ch4, adc_ch5)
     BEGIN
         port_dat_i <= (OTHERS => '0');
 
@@ -252,10 +288,16 @@ BEGIN
                     port_dat_i <= "000000" & KEY(1) & KEY(0);
 
                 WHEN 16#03# =>
-                    port_dat_i <= "0000" & SW(3 DOWNTO 0);
+                    port_dat_i <= "0000" & sw_virtual;
 
                 WHEN 16#04# =>
                     port_dat_i <= "0000000" & uart_ready;
+
+                WHEN 16#06# =>
+                    port_dat_i <= adc_ch4(11 DOWNTO 4);
+
+                WHEN 16#07# =>
+                    port_dat_i <= adc_ch5(11 DOWNTO 4);
 
                 WHEN OTHERS =>
                     port_dat_i <= (OTHERS => '0');

@@ -1,0 +1,31 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core.qsys --block-symbol-file --output-directory=/home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core.qsys
+Progress: Reading input file
+Progress: Adding modular_adc_0 [altera_modular_adc 25.1]
+Progress: Parameterizing module modular_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core.qsys --synthesis=VHDL --output-directory=/home/dafondron/Projects/clases/chips/TE2002B_AvanceFinal/Gumnut/P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core/synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading P01_Gumnut_CPU_Quartus_Mixed/modular_adc_core.qsys
+Progress: Reading input file
+Progress: Adding modular_adc_0 [altera_modular_adc 25.1]
+Progress: Parameterizing module modular_adc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: modular_adc_core: Generating "modular_adc_core" for QUARTUS_SYNTH
+Info: modular_adc_0: "modular_adc_core" instantiated altera_modular_adc "modular_adc_0"
+Info: control_internal: "modular_adc_0" instantiated altera_modular_adc_control "control_internal"
+Info: sequencer_internal: "modular_adc_0" instantiated altera_modular_adc_sequencer "sequencer_internal"
+Info: sample_store_internal: "modular_adc_0" instantiated altera_modular_adc_sample_store "sample_store_internal"
+Info: modular_adc_core: Done "modular_adc_core" with 5 modules, 14 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
