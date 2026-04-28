@@ -107,8 +107,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
 set_location_assignment PIN_P11 -to CLOCK_50
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
-set_location_assignment PIN_A7 -to KEY[1]
-set_location_assignment PIN_B8 -to KEY[0]
+set_location_assignment PIN_V8 -to KEY[1]
+set_location_assignment PIN_V7 -to KEY[0]
 set_location_assignment PIN_B11 -to LEDR[9]
 set_location_assignment PIN_A11 -to LEDR[8]
 set_location_assignment PIN_D14 -to LEDR[7]
