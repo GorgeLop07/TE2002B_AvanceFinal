@@ -61,22 +61,18 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_TX
 set_location_assignment PIN_N1 -to GPIO_RX
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_RX
 set_global_assignment -name VHDL_FILE uart_rx.vhd
-set_location_assignment PIN_C14 -to HEX0[0]
-set_location_assignment PIN_E15 -to HEX0[1]
-set_location_assignment PIN_C15 -to HEX0[2]
-set_location_assignment PIN_C16 -to HEX0[3]
-set_location_assignment PIN_E16 -to HEX0[4]
-set_location_assignment PIN_D17 -to HEX0[5]
-set_location_assignment PIN_C17 -to HEX0[6]
-set_location_assignment PIN_C18 -to HEX1[0]
-set_location_assignment PIN_D18 -to HEX1[1]
-set_location_assignment PIN_E18 -to HEX1[2]
-set_location_assignment PIN_B16 -to HEX1[3]
-set_location_assignment PIN_A17 -to HEX1[4]
-set_location_assignment PIN_A18 -to HEX1[5]
-set_location_assignment PIN_B17 -to HEX1[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1
+set_location_assignment PIN_AA6  -to HEX_BUS[0]
+set_location_assignment PIN_AA8  -to HEX_BUS[1]
+set_location_assignment PIN_AB3  -to HEX_BUS[2]
+set_location_assignment PIN_AB2  -to HEX_BUS[3]
+set_location_assignment PIN_AA14 -to HEX_BUS[4]
+set_location_assignment PIN_AB10 -to HEX_BUS[5]
+set_location_assignment PIN_AA2  -to HEX_BUS[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX_BUS
+set_location_assignment PIN_W10  -to DISP_SEL[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DISP_SEL[0]
+set_location_assignment PIN_AB12 -to DISP_SEL[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DISP_SEL[1]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

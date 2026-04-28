@@ -9,8 +9,8 @@ ENTITY de10lite IS
         LEDR     : OUT std_logic_vector(9 DOWNTO 0);
         GPIO_TX  : OUT std_logic;
         GPIO_RX  : IN  std_logic;
-        HEX0     : OUT std_logic_vector(6 DOWNTO 0);
-        HEX1     : OUT std_logic_vector(6 DOWNTO 0)
+        HEX_BUS  : OUT std_logic_vector(6 DOWNTO 0);
+        DISP_SEL : OUT std_logic_vector(1 DOWNTO 0)
     );
 END de10lite;
 
@@ -86,6 +86,7 @@ ARCHITECTURE Structural OF de10lite IS
     SIGNAL rx_done     : std_logic;
     SIGNAL rx_data     : std_logic_vector(7 downto 0);
     SIGNAL score_reg   : std_logic_vector(7 downto 0) := (others => '0');
+    SIGNAL mux_cnt     : unsigned(15 downto 0) := (others => '0');
 
     -- Funcion BCD a 7 segmentos (activo bajo)
     -- segmentos: gfedcba
@@ -94,17 +95,17 @@ ARCHITECTURE Structural OF de10lite IS
         VARIABLE seg : std_logic_vector(6 downto 0);
     BEGIN
         CASE bcd IS
-            WHEN "0000" => seg := "1000000"; -- 0
-            WHEN "0001" => seg := "1111001"; -- 1
-            WHEN "0010" => seg := "0100100"; -- 2
-            WHEN "0011" => seg := "0110000"; -- 3
-            WHEN "0100" => seg := "0011001"; -- 4
-            WHEN "0101" => seg := "0010010"; -- 5
-            WHEN "0110" => seg := "0000010"; -- 6
-            WHEN "0111" => seg := "1111000"; -- 7
-            WHEN "1000" => seg := "0000000"; -- 8
-            WHEN "1001" => seg := "0010000"; -- 9
-            WHEN OTHERS => seg := "1111111"; -- apagado
+            WHEN "0000" => seg := "0111111"; -- 0
+            WHEN "0001" => seg := "0000110"; -- 1
+            WHEN "0010" => seg := "1011011"; -- 2
+            WHEN "0011" => seg := "1001111"; -- 3
+            WHEN "0100" => seg := "1100110"; -- 4
+            WHEN "0101" => seg := "1101101"; -- 5
+            WHEN "0110" => seg := "1111101"; -- 6
+            WHEN "0111" => seg := "0000111"; -- 7
+            WHEN "1000" => seg := "1111111"; -- 8
+            WHEN "1001" => seg := "1101111"; -- 9
+            WHEN OTHERS => seg := "0000000"; -- apagado
         END CASE;
         RETURN seg;
     END FUNCTION;
@@ -192,9 +193,18 @@ BEGIN
         END IF;
     END PROCESS;
 
-    -- Mostrar en HEX0 (unidades) y HEX1 (decenas)
-    HEX0 <= bcd_to_7seg(score_reg(3 DOWNTO 0));
-    HEX1 <= bcd_to_7seg(score_reg(7 DOWNTO 4));
+    -- Contador para multiplexeo (~760 Hz por digito a 50 MHz)
+    PROCESS(CLOCK_50)
+    BEGIN
+        IF rising_edge(CLOCK_50) THEN
+            mux_cnt <= mux_cnt + 1;
+        END IF;
+    END PROCESS;
+
+    -- Multiplexar digitos en bus compartido; transistor HIGH = encendido
+    HEX_BUS  <= bcd_to_7seg(score_reg(3 DOWNTO 0)) WHEN mux_cnt(15) = '0' ELSE
+                 bcd_to_7seg(score_reg(7 DOWNTO 4));
+    DISP_SEL <= "01" WHEN mux_cnt(15) = '0' ELSE "10";
 
     PROCESS(CLOCK_50, rst_i)
     BEGIN
