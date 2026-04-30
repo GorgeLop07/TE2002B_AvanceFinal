@@ -1,7 +1,7 @@
 ; uart_sw.gsm
-; SW0=D  SW1=A  SW2=W  SW3=S
-; KEY0(bit0)=gearUp '1'   KEY1(bit1)=gearDown '2'
-; Delay 50ms tras cada envio para no saturar la UART
+; SW0=D  SW1=A  SW2=W(KEY1:A)  SW3=S(KEY1:D)
+; KEY[0] flanco de bajada: envia '1'
+; KEY[1] sostenido (activo bajo = 0): W->A y S->D
 
           text
           org 0x000
@@ -13,7 +13,8 @@ prev_key: byte 3
           text
           org 0x010
 
-main:     inp r1, 0x03
+main:     inp r1, 0x03      ; leer sw_virtual
+          inp r2, 0x02      ; leer KEYs (bit0=KEY0, bit1=KEY1, activo bajo)
 
           add r3, r1, 0
           and r3, r3, 0x01
@@ -23,43 +24,44 @@ main:     inp r1, 0x03
 
 chk_a:    add r3, r1, 0
           and r3, r3, 0x02
+          bz  chk_w
+          add r3, r0, 0x41  ; 'A'
+          jmp send
+
+chk_w:    add r3, r1, 0
+          and r3, r3, 0x04
           bz  chk_s
-          add r3, r0, 0x41
+          add r4, r2, 0
+          and r4, r4, 0x02  ; KEY[1]: 0=presionado
+          bz  w_swap
+          add r3, r0, 0x57  ; 'W' (KEY1 suelto)
+          jmp send
+w_swap:   add r3, r0, 0x41  ; 'A' (KEY1 presionado)
           jmp send
 
 chk_s:    add r3, r1, 0
-          and r3, r3, 0x04
-          bz  chk_d
-          add r3, r0, 0x57  ; 'W'
-          jmp send
-
-chk_d:    add r3, r1, 0
           and r3, r3, 0x08
           bz  chk_keys
-          add r3, r0, 0x53  ; 'S'
+          add r4, r2, 0
+          and r4, r4, 0x02
+          bz  s_swap
+          add r3, r0, 0x53  ; 'S' (KEY1 suelto)
+          jmp send
+s_swap:   add r3, r0, 0x44  ; 'D' (KEY1 presionado)
           jmp send
 
-chk_keys: inp r2, 0x02
-          and r2, r2, 0x03
-          ldm r6, prev_key
-          stm r2, prev_key
+chk_keys: ldm r6, prev_key
+          add r4, r2, 0
+          and r4, r4, 0x01  ; KEY[0] actual
+          stm r4, prev_key
 
           add r3, r6, 0
           and r3, r3, 0x01
-          bz  chk_k1
-          add r3, r2, 0
+          bz  main          ; prev=0 (presionado), sin flanco
+          add r3, r4, 0
           and r3, r3, 0x01
-          bnz chk_k1
-          add r3, r0, 0x31
-          jmp send
-
-chk_k1:   add r3, r6, 0
-          and r3, r3, 0x02
-          bz  main
-          add r3, r2, 0
-          and r3, r3, 0x02
-          bnz main
-          add r3, r0, 0x32
+          bnz main          ; curr=1 (suelto), sin flanco
+          add r3, r0, 0x31  ; '1' - flanco de bajada
           jmp send
 
 send:     inp r4, 0x04

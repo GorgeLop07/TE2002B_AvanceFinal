@@ -1,12 +1,12 @@
-Fitter Status : Successful - Tue Apr 28 08:04:39 2026
+Fitter Status : Successful - Tue Apr 28 08:16:33 2026
 Quartus Prime Version : 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 Revision Name : gumnut_with_mem
 Top-level Entity Name : de10lite
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 3,725 / 49,760 ( 7 % )
-    Total combinational functions : 2,658 / 49,760 ( 5 % )
+Total logic elements : 3,724 / 49,760 ( 7 % )
+    Total combinational functions : 2,664 / 49,760 ( 5 % )
     Dedicated logic registers : 2,522 / 49,760 ( 5 % )
 Total registers : 2522
 Total pins : 34 / 360 ( 9 % )
