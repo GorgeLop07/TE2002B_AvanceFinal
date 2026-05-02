@@ -15,19 +15,19 @@ public enum TractorGear
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Transición de Niveles")]
-    [Tooltip("El número de la escena a la que vas al ganar. (Pon 0 en tu último nivel)")]
+    [Header("Transiciï¿½n de Niveles")]
+    [Tooltip("El nï¿½mero de la escena a la que vas al ganar. (Pon 0 en tu ï¿½ltimo nivel)")]
     [SerializeField] private int nextSceneIndex = 2;
-    [Tooltip("El número de la pantalla de carga o menú a la que vas al perder.")]
+    [Tooltip("El nï¿½mero de la pantalla de carga o menï¿½ a la que vas al perder.")]
     [SerializeField] private int menuOrLoadingIndex = 0;
     [Tooltip("Tiempo de espera tras ganar/perder antes de cambiar de escena.")]
     [SerializeField] private float waitTimeAfterEnd = 5f;
 
-    [Header("Configuración Especial del Nivel")]
+    [Header("Configuraciï¿½n Especial del Nivel")]
     [Tooltip("Activa esto en el Nivel 3 para que solo se pueda usar la reversa.")]
     [SerializeField] private bool isReverseOnlyLevel = false;
 
-    [Header("Configuración de Marchas (Velocidades)")]
+    [Header("Configuraciï¿½n de Marchas (Velocidades)")]
     [SerializeField] private float speedFirstGear = 3f;
     [SerializeField] private float speedSecondGear = 6f;
     [SerializeField] private float speedThirdGear = 10f;
@@ -172,13 +172,13 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (shiftUp && currentGear < TractorGear.Reverse)
+                if (shiftUp)
                 {
-                    currentGear++;
+                    currentGear = currentGear == TractorGear.Reverse ? TractorGear.Neutral : currentGear + 1;
                 }
-                else if (shiftDown && currentGear > TractorGear.Neutral)
+                else if (shiftDown)
                 {
-                    currentGear--;
+                    currentGear = currentGear == TractorGear.Neutral ? TractorGear.Reverse : currentGear - 1;
                 }
             }
 
